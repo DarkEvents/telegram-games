@@ -1,0 +1,81 @@
+{
+	"name": "telegram-typescript-bot-template",
+	"private": true,
+	"version": "0.0.0",
+	"description": "",
+	"keywords": [
+		""
+	],
+	"license": "MIT",
+	"repository": "<%= githubUsername %>/telegram-typescript-bot-template",
+	"author": {
+		"name": "<%= name %>",
+		"email": "<%= email %>",
+		"url": "<%= website %>"
+	},
+	"scripts": {
+		"build": "del-cli dist && tsc",
+		"prepack": "npm run build",
+		"start": "tsc --sourceMap && npm run copy-key && node --unhandled-rejections=strict -r source-map-support/register dist/index.js",
+		"copy-key": "cp source/bot/bot-token.txt dist/bot/",
+		"copy-key-dev": "cp source/bot/bot-token-dev.txt dist/bot/bot-token.txt",
+		"dev": "npm run copy-key-dev && tsc --sourceMap && node --unhandled-rejections=strict -r source-map-support/register dist/index.js",
+		"pm2start": "pm2 start npm --name 'games' -- run start",
+		"pm2stop": "pm2 stop 'games'",
+		"pm2delete": "pm2 delete 'games'",
+		"pm2restart": "pm2 restart 'games'",
+		"test": "tsc --sourceMap && xo && nyc ava"
+	},
+	"engines": {
+		"node": ">=14"
+	},
+	"dependencies": {
+		"@edjopato/telegraf-i18n": "^0.2.1",
+		"axios": "^0.21.1",
+		"jimp": "^0.22.8",
+		"mysql2": "^3.3.3",
+		"source-map-support": "^0.5.19",
+		"telegraf": "^4.12.2",
+		"telegraf-inline-menu": "^6.2.0",
+		"telegraf-session-local": "^2.1.0"
+	},
+	"devDependencies": {
+		"@sindresorhus/tsconfig": "^0.8.0",
+		"@types/node": "^14.14.35",
+		"ava": "^5.3.0",
+		"cross-env": "^7.0.3",
+		"del-cli": "^3.0.0",
+		"nyc": "^15.0.0",
+		"typescript": "^4.2.3",
+		"xo": "^0.44.0"
+	},
+	"files": [
+		"dist/source",
+		"!*.test.*"
+	],
+	"main": "dist/source",
+	"types": "dist/source",
+	"nyc": {
+		"all": true,
+		"extension": [
+			".ts"
+		],
+		"include": [
+			"dist/source",
+			"source"
+		],
+		"exclude": [
+			"**/*.d.ts",
+			"**/*.test.ts"
+		],
+		"reporter": [
+			"lcov",
+			"text"
+		]
+	},
+	"xo": {
+		"rules": {
+			"ava/no-ignored-test-files": "off"
+		}
+	}
+}

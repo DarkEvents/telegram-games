@@ -1,0 +1,94 @@
+# ==========================================
+# Credenziali, Token e Segreti Sensibili
+# ==========================================
+# Telegram bot tokens & credentials (root e sottocartelle)
+*bot-token*.txt
+**/*bot-token*.txt
+*token*.txt
+**/*token*.txt
+*token*.json
+**/*token*.json
+
+# File di ambiente e secrets
+.env
+.env.*
+*.env
+!.env.example
+!.env.template
+
+# Connessioni Database con credenziali locali/produzione
+*db-conn*.json
+**/*db-conn*.json
+*dbconn*.json
+**/*dbconn*.json
+!**/*example*.json
+!**/*template*.json
+
+# File di database locali e dump SQL
+*.sqlite
+*.sqlite3
+*.db
+*.sql
+
+# Certificati e chiavi private
+*.pem
+*.key
+*.crt
+*.cert
+*.pfx
+*.p12
+
+# ==========================================
+# Dati di Runtime, Sessioni e Configurazioni Locali
+# ==========================================
+config.json
+persist/
+**/persist/**
+sessions.json
+**/sessions.json
+
+# ==========================================
+# Dipendenze e Output di Build
+# ==========================================
+node_modules/
+dist/
+build/
+package-lock.json
+yarn.lock
+/*-*.*.*.tgz
+.tsbuildinfo
+
+# ==========================================
+# Log e Debug
+# ==========================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ==========================================
+# Test e Coverage
+# ==========================================
+.nyc_output
+coverage/
+.cache/
+.eslintcache
+
+# ==========================================
+# IDE e Ambienti di Sviluppo
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ==========================================
+# Sistema Operativo
+# ==========================================
+.DS_Store
+Thumbs.db
+ehthumbs.db

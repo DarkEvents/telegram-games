@@ -1,0 +1,7 @@
+{
+    "dbhost": "localhost",
+    "dbuser": "root",
+    "dbpassword": "your_db_password_here",
+    "dbname": "game",
+    "dbport": 3306
+}
